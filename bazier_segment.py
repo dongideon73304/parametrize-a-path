@@ -6,18 +6,6 @@ point1 = [31.449902934592444, 24.167423853428893, 20.0]  # Start point
 point4 = [39.9234730112761, 30.893575286672355, 83.73175064999998]  # End point
 
 # Extract values
-x1, y1, heading1 = point1
-x4, y4, heading4 = point4
-
-# Compute Euclidean distance
-ecl_dist = np.sqrt((x4 - x1)**2 + (y4 - y1)**2)
-dist = ecl_dist / 2.5
-# Compute intermediate control points
-x2 = x1 + (dist) * np.cos(np.radians(heading1))  # Convert degrees to radians
-y2 = y1 + (dist) * np.sin(np.radians(heading1))  # Convert degrees to radians
-
-x3 = x4 + (dist) * np.cos(np.radians(heading4 + 180))  # Convert degrees to radians
-y3 = y4 + (dist) * np.sin(np.radians(heading4 + 180))  # Convert degrees to radians
 
 # Control points
 control_points = np.array([[x1, y1], [x2, y2], [x3, y3], [x4, y4]])
